@@ -1,0 +1,50 @@
+CRITICAL - 2024-11-08 06:04:56 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "berita.php"
+[Method: GET, Route: BeritaTerbaru]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('berita.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('berita', [], true)
+ 3 APPPATH\Controllers\Page.php(53): view('berita')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\page->beritaTerbaru()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\page))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(20): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-08 06:33:28 --> ErrorException: include(navAdmin/sidebar.php): Failed to open stream: No such file or directory
+[Method: GET, Route: Dashboard]
+in APPPATH\Views\navAdmin\header.php on line 262.
+ 1 APPPATH\Views\navAdmin\header.php(262): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(navAdmin/sidebar.php): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\project\\WebsiteSekolah\\core\\app\\Views\\navAdmin\\header.php', 262)
+ 2 APPPATH\Views\navAdmin\header.php(262): include()
+ 3 APPPATH\Views\_dashboard.php(2): include('C:\\xampp\\htdocs\\project\\WebsiteSekolah\\core\\app\\Views\\navAdmin\\header.php')
+ 4 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\project\\WebsiteSekolah\\core\\app\\Views\\_dashboard.php')
+ 5 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('_dashboard', [], true)
+ 7 APPPATH\Controllers\Page.php(69): view('_dashboard')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\page->dashboard()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\page))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(20): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-08 07:20:36 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "_beritTerbaru.php"
+[Method: GET, Route: BeritaTerbaru_]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('_beritTerbaru.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('_beritTerbaru', [], true)
+ 3 APPPATH\Controllers\Page.php(113): view('_beritTerbaru')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\page->beritaTerbaru_()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\page))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(20): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-08 07:23:30 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "Login'_"
+[Method: GET, Route: Login%27_]
+in SYSTEMPATH\Router\Router.php on line 737.
+ 1 SYSTEMPATH\Router\Router.php(204): CodeIgniter\Router\Router->checkDisallowedChars('Login\'_')
+ 2 SYSTEMPATH\CodeIgniter.php(834): CodeIgniter\Router\Router->handle('Login\'_')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(20): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
