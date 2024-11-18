@@ -45,5 +45,9 @@ Options -Indexes
 </IfModule>
 
 # Disable server signature start
+<<<<<<< HEAD
 	ServerSignature Off
+=======
+ServerSignature Off
+>>>>>>> 4f5b2b440141936a350ce95dab47fe091dafd7ff
 # Disable server signature end
