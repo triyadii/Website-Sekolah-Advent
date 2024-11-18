@@ -6,7 +6,7 @@ include('nav/header.php')
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-        <img src="uploads/Profil/<?= $data[0]['gambar'] ?>" alt="" data-aos="fade-in">
+        <img src="uploads/profil/<?= $data[0]['gambar'] ?>" alt="" data-aos="fade-in">
 
         <div class="container">
             <h2 data-aos="fade-up" data-aos-delay="100"><?= $data[0]['pengantar'] ?></h2>
@@ -23,7 +23,7 @@ include('nav/header.php')
             <div class="row gy-4">
 
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
-                    <img src="uploads/Profil/<?= $data[0]['gambar'] ?>" class="img-fluid" alt="">
+                    <img src="uploads/profil/<?= $data[0]['gambar'] ?>" class="img-fluid" alt="">
                 </div>
 
                 <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
