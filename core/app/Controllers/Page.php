@@ -114,7 +114,7 @@ class page extends BaseController
             return redirect()->to(base_url());
         }
         $data   = $modelData->tampilOrganisasiNonpendidik();
-        return view('strukturOrganisasiTenagaNonPendidik', compact('data'));
+        return view('strukturOrganisasiTenagaNonpendidik', compact('data'));
     }
     public function infoSekolah()
     {
