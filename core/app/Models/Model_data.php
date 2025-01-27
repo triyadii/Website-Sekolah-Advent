@@ -76,6 +76,14 @@ class Model_data extends Model
         $builder->select('*');
         return $builder->get()->getResultArray();
     }
+    public function cekSambutanById($idSambutan = null)
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table('tbl_sambutan');
+        $builder->select('*');
+        $builder->where('idSambutan', $idSambutan);
+        return $builder->get()->getResultArray();
+    }
     // Data Organisasi Sekolah
     // ==========================================
     public function tampilOrganisasiSekolah()
@@ -173,6 +181,24 @@ class Model_data extends Model
         $builder = $db->table('tbl_tenaga_nonpendidik');
         $builder->select('*');
         $builder->where('idTenagaNonpendidik', $idNonpendidik);
+        return $builder->get()->getResultArray();
+    }
+    // Data Organisasi Non Pendidik
+    // ==========================================
+    public function tampilSiswa()
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table('tbl_siswa');
+        $builder->select('*');
+        $builder->orderBy('idSiswa', 'DESC');
+        return $builder->get()->getResultArray();
+    }
+    public function cekSiswaById($idSiswa)
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table('tbl_siswa');
+        $builder->select('*');
+        $builder->where('idSiswa', $idSiswa);
         return $builder->get()->getResultArray();
     }
     // Data Berita

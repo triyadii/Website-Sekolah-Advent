@@ -8,8 +8,8 @@ include('nav/header.php')
 
         <img src="uploads/profil/<?= $data[0]['gambar'] ?>" alt="" data-aos="fade-in">
 
-        <div class="container">
-            <h2 data-aos="fade-up" data-aos-delay="100"><?= $data[0]['pengantar'] ?></h2>
+        <div class="container" style="width:70%;text-align:center;">
+            <h3 data-aos="fade-up" data-aos-delay="100"><?= $data[0]['pengantar'] ?></h3>
             </p>
         </div>
 
@@ -21,11 +21,9 @@ include('nav/header.php')
         <div class="container">
 
             <div class="row gy-4">
-
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="100">
                     <img src="uploads/profil/<?= $data[0]['gambar'] ?>" class="img-fluid" alt="">
                 </div>
-
                 <div class="col-lg-6 order-2 order-lg-1 content" data-aos="fade-up" data-aos-delay="200">
                     <h3>Tentang Sekolah <?= $namaSekolah ?> </h3>
                     <p class="fst-italic">
@@ -52,127 +50,139 @@ include('nav/header.php')
 
             <?php
             if ($jumlahBerita >= 3) { ?>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="course-item">
-                            <img src="uploads/berita/<?= $dataBerita[0]['gambar'] ?>" class="img-fluid" alt="...">
-                            <div class="course-content">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="course-item">
+                        <img src="uploads/berita/<?= $dataBerita[0]['gambar'] ?>" class="img-fluid" alt="...">
+                        <div class="course-content">
 
-                                <h3><a href="course-details.html"><?= $dataBerita[0]['judulBerita'] ?></a></h3>
-                                <p class="description"><?= $dataBerita[0]['judulBerita'] ?></p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
-                                    <div class="trainer-profile d-flex align-items-center">
-                                        <a href="" class="trainer-link"><?= $dataBerita[0]['author'] ?></a>
-                                    </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <p><?= $dataBerita[0]['waktu'] ?></p>
-                                    </div>
+                            <h3><a
+                                    href="<?= base_url() ?>BeritaTerbaruDetail/<?= $dataBerita[0]['idBerita'] ?>"><?= $dataBerita[0]['judulBerita'] ?></a>
+                            </h3>
+                            <p class="description"><?= $dataBerita[0]['judulBerita'] ?></p>
+                            <div class="trainer d-flex justify-content-between align-items-center">
+                                <div class="trainer-profile d-flex align-items-center">
+                                    <a href="" class="trainer-link"><?= $dataBerita[0]['author'] ?></a>
+                                </div>
+                                <div class="trainer-rank d-flex align-items-center">
+                                    <p><?= $dataBerita[0]['waktu'] ?></p>
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- End Course Item-->
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
-                        data-aos-delay="100">
-                        <div class="course-item">
-                            <img src="uploads/berita/<?= $dataBerita[1]['gambar'] ?>" class="img-fluid" alt="...">
-                            <div class="course-content">
+                    </div>
+                </div> <!-- End Course Item-->
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+                    data-aos-delay="100">
+                    <div class="course-item">
+                        <img src="uploads/berita/<?= $dataBerita[1]['gambar'] ?>" class="img-fluid" alt="...">
+                        <div class="course-content">
 
-                                <h3><a href="course-details.html"><?= $dataBerita[1]['judulBerita'] ?></a></h3>
-                                <p class="description"><?= $dataBerita[1]['judulBerita'] ?></p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
-                                    <div class="trainer-profile d-flex align-items-center">
-                                        <a href="" class="trainer-link"><?= $dataBerita[1]['author'] ?></a>
-                                    </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <p><?= $dataBerita[1]['waktu'] ?></p>
-                                    </div>
+                            <h3><a
+                                    href="<?= base_url() ?>BeritaTerbaruDetail/<?= $dataBerita[1]['idBerita'] ?>"><?= $dataBerita[1]['judulBerita'] ?></a>
+                            </h3>
+                            <p class="description"><?= $dataBerita[1]['judulBerita'] ?></p>
+                            <div class="trainer d-flex justify-content-between align-items-center">
+                                <div class="trainer-profile d-flex align-items-center">
+                                    <a href="" class="trainer-link"><?= $dataBerita[1]['author'] ?></a>
+                                </div>
+                                <div class="trainer-rank d-flex align-items-center">
+                                    <p><?= $dataBerita[1]['waktu'] ?></p>
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- End Course Item-->
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in"
-                        data-aos-delay="100">
-                        <div class="course-item">
-                            <img src="uploads/berita/<?= $dataBerita[2]['gambar'] ?>" class="img-fluid" alt="...">
-                            <div class="course-content">
+                    </div>
+                </div> <!-- End Course Item-->
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in"
+                    data-aos-delay="100">
+                    <div class="course-item">
+                        <img src="uploads/berita/<?= $dataBerita[2]['gambar'] ?>" class="img-fluid" alt="...">
+                        <div class="course-content">
 
-                                <h3><a href="course-details.html"><?= $dataBerita[2]['judulBerita'] ?></a></h3>
-                                <p class="description"><?= $dataBerita[2]['judulBerita'] ?></p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
-                                    <div class="trainer-profile d-flex align-items-center">
-                                        <a href="" class="trainer-link"><?= $dataBerita[2]['author'] ?></a>
-                                    </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <p><?= $dataBerita[2]['waktu'] ?></p>
-                                    </div>
+                            <h3><a
+                                    href="<?= base_url() ?>BeritaTerbaruDetail/<?= $dataBerita[2]['idBerita'] ?>"><?= $dataBerita[2]['judulBerita'] ?></a>
+                            </h3>
+                            <p class="description"><?= $dataBerita[2]['judulBerita'] ?></p>
+                            <div class="trainer d-flex justify-content-between align-items-center">
+                                <div class="trainer-profile d-flex align-items-center">
+                                    <a href="" class="trainer-link"><?= $dataBerita[2]['author'] ?></a>
+                                </div>
+                                <div class="trainer-rank d-flex align-items-center">
+                                    <p><?= $dataBerita[2]['waktu'] ?></p>
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- End Course Item-->
-                </div>
+                    </div>
+                </div> <!-- End Course Item-->
+            </div>
             <?php
             } else if ($jumlahBerita >= 2) { ?>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="course-item">
-                            <img src="uploads/berita/<?= $dataBerita[0]['gambar'] ?>" class="img-fluid" alt="...">
-                            <div class="course-content">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="course-item">
+                        <img src="uploads/berita/<?= $dataBerita[0]['gambar'] ?>" class="img-fluid" alt="...">
+                        <div class="course-content">
 
-                                <h3><a href="course-details.html"><?= $dataBerita[0]['judulBerita'] ?></a></h3>
-                                <p class="description"><?= $dataBerita[0]['judulBerita'] ?></p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
-                                    <div class="trainer-profile d-flex align-items-center">
-                                        <a href="" class="trainer-link"><?= $dataBerita[0]['author'] ?></a>
-                                    </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <p><?= $dataBerita[0]['waktu'] ?></p>
-                                    </div>
+                            <h3><a
+                                    href="<?= base_url() ?>BeritaTerbaruDetail/<?= $dataBerita[0]['idBerita'] ?>"><?= $dataBerita[0]['judulBerita'] ?></a>
+                            </h3>
+                            <p class="description"><?= $dataBerita[0]['judulBerita'] ?></p>
+                            <div class="trainer d-flex justify-content-between align-items-center">
+                                <div class="trainer-profile d-flex align-items-center">
+                                    <a href="" class="trainer-link"><?= $dataBerita[0]['author'] ?></a>
+                                </div>
+                                <div class="trainer-rank d-flex align-items-center">
+                                    <p><?= $dataBerita[0]['waktu'] ?></p>
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- End Course Item-->
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
-                        data-aos-delay="100">
-                        <div class="course-item">
-                            <img src="uploads/berita/<?= $dataBerita[1]['gambar'] ?>" class="img-fluid" alt="...">
-                            <div class="course-content">
+                    </div>
+                </div> <!-- End Course Item-->
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+                    data-aos-delay="100">
+                    <div class="course-item">
+                        <img src="uploads/berita/<?= $dataBerita[1]['gambar'] ?>" class="img-fluid" alt="...">
+                        <div class="course-content">
 
-                                <h3><a href="course-details.html"><?= $dataBerita[1]['judulBerita'] ?></a></h3>
-                                <p class="description"><?= $dataBerita[1]['judulBerita'] ?></p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
-                                    <div class="trainer-profile d-flex align-items-center">
-                                        <a href="" class="trainer-link"><?= $dataBerita[1]['author'] ?></a>
-                                    </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <p><?= $dataBerita[1]['waktu'] ?></p>
-                                    </div>
+                            <h3><a
+                                    href="<?= base_url() ?>BeritaTerbaruDetail/<?= $dataBerita[1]['idBerita'] ?>"><?= $dataBerita[1]['judulBerita'] ?></a>
+                            </h3>
+                            <p class="description"><?= $dataBerita[1]['judulBerita'] ?></p>
+                            <div class="trainer d-flex justify-content-between align-items-center">
+                                <div class="trainer-profile d-flex align-items-center">
+                                    <a href="" class="trainer-link"><?= $dataBerita[1]['author'] ?></a>
+                                </div>
+                                <div class="trainer-rank d-flex align-items-center">
+                                    <p><?= $dataBerita[1]['waktu'] ?></p>
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- End Course Item-->
-                </div>
+                    </div>
+                </div> <!-- End Course Item-->
+            </div>
             <?php
             } else if ($jumlahBerita >= 1) { ?>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="course-item">
-                            <img src="uploads/berita/<?= $dataBerita[0]['gambar'] ?>" class="img-fluid" alt="...">
-                            <div class="course-content">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="course-item">
+                        <img src="uploads/berita/<?= $dataBerita[0]['gambar'] ?>" class="img-fluid" alt="...">
+                        <div class="course-content">
 
-                                <h3><a href="course-details.html"><?= $dataBerita[0]['judulBerita'] ?></a></h3>
-                                <p class="description"><?= $dataBerita[0]['judulBerita'] ?></p>
-                                <div class="trainer d-flex justify-content-between align-items-center">
-                                    <div class="trainer-profile d-flex align-items-center">
-                                        <a href="" class="trainer-link"><?= $dataBerita[0]['author'] ?></a>
-                                    </div>
-                                    <div class="trainer-rank d-flex align-items-center">
-                                        <p><?= $dataBerita[0]['waktu'] ?></p>
-                                    </div>
+                            <h3><a
+                                    href="<?= base_url() ?>BeritaTerbaruDetail/<?= $dataBerita[0]['idBerita'] ?>"><?= $dataBerita[0]['judulBerita'] ?></a>
+                            </h3>
+                            <p class="description"><?= $dataBerita[0]['judulBerita'] ?></p>
+                            <div class="trainer d-flex justify-content-between align-items-center">
+                                <div class="trainer-profile d-flex align-items-center">
+                                    <a href="" class="trainer-link"><?= $dataBerita[0]['author'] ?></a>
+                                </div>
+                                <div class="trainer-rank d-flex align-items-center">
+                                    <p><?= $dataBerita[0]['waktu'] ?></p>
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- End Course Item-->
-                </div>
+                    </div>
+                </div> <!-- End Course Item-->
+            </div>
             <?php
             }
             ?>
@@ -185,19 +195,25 @@ include('nav/header.php')
     <!-- Trainers Index Section -->
     <section id="trainers-index" class="section trainers-index">
 
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Struktur Organisasi</h2>
+            <p>Struktur Organisasi</p>
+        </div><!-- End Section Title -->
+
         <div class="container">
             <div class="row">
                 <?php
                 foreach ($dataOrganisasiSekolah as $dos) { ?>
-                    <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member">
-                            <img src="uploads/strukturOrganisasi/<?= $dos['foto'] ?>" class="img-fluid" alt="">
-                            <div class="member-content">
-                                <h4><?= $dos['nama'] ?></h4>
-                                <span><?= $dos['jabatan'] ?></span>
-                            </div>
+                <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member">
+                        <img src="uploads/strukturOrganisasi/<?= $dos['foto'] ?>" class="img-fluid" alt="">
+                        <div class="member-content">
+                            <h4><?= $dos['nama'] ?></h4>
+                            <span><?= $dos['jabatan'] ?></span>
                         </div>
-                    </div><!-- End Team Member -->
+                    </div>
+                </div><!-- End Team Member -->
                 <?php
                 }
                 ?>

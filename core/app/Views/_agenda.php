@@ -65,7 +65,7 @@ include('navAdmin/header.php');
                                     </tr>
                                     <!-- Modal Edit Data -->
                                     <div class="modal fade" id="modalEdit<?= $d['idAgenda'] ?>" tabindex="-1">
-                                        <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-dialog modal-xl">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">Edit Data</h5>
@@ -82,12 +82,10 @@ include('navAdmin/header.php');
                                                                     value="<?= $d['judulAgenda'] ?>" required>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12">
+                                                        <div style="width: 100%;">
                                                             <label class="form-label">Agenda</label>
-                                                            <div class="input-group has-validation">
-                                                                <input type="text" name="agenda" class="form-control"
-                                                                    value="<?= $d['agenda'] ?>" required>
-                                                            </div>
+                                                            <textarea name="infoSekolah"
+                                                                id="editorAgendaEdit"><?= $d['agenda'] ?></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -168,7 +166,7 @@ include('navAdmin/header.php');
 
 <!-- Modal Tambah User -->
 <div class="modal fade" id="modalTambahUser" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Tambah User</h5>
@@ -185,9 +183,8 @@ include('navAdmin/header.php');
                     </div>
                     <div class="col-12">
                         <label class="form-label">Agenda</label>
-                        <div class="input-group has-validation">
-                            <input type="text" name="agenda" class="form-control" placeholder="Masukkan Username"
-                                required>
+                        <div style="width: 100%;">
+                            <textarea name="agenda" id="editorAgenda"></textarea>
                         </div>
                     </div>
                     <div class="col-12">
@@ -224,4 +221,42 @@ include('navAdmin/footer.php');
             reader.readAsDataURL(input.files[0]);
         }
     }
+</script>
+<script type="module">
+    import {
+        ClassicEditor,
+        Essentials,
+        Paragraph,
+        Bold,
+        Italic,
+        Font
+    } from 'ckeditor5';
+    ClassicEditor
+        .create(document.querySelector('#editorAgenda'), {
+            plugins: [Essentials, Paragraph, Bold, Italic, Font],
+            toolbar: [
+                'undo', 'redo', '|', 'bold', 'italic', '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+            ]
+        })
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    ClassicEditor
+        .create(document.querySelector('#editorAgendaEdit'), {
+            plugins: [Essentials, Paragraph, Bold, Italic, Font],
+            toolbar: [
+                'undo', 'redo', '|', 'bold', 'italic', '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+            ]
+        })
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(error => {
+            console.error(error);
+        });
 </script>

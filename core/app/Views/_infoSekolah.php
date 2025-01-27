@@ -85,9 +85,9 @@ include('navAdmin/header.php');
                             </div>
                             <div class="col-12">
                               <label class="form-label">infoSekolah</label>
-                              <div class="input-group has-validation">
-                                <input type="text" name="infoSekolah" class="form-control"
-                                  value="<?= $d['informasi'] ?>" required>
+                              <div style="width: 100%;">
+                                <textarea name="infoSekolah"
+                                  id="editorInfoSekolahEdit"><?= $d['informasi'] ?></textarea>
                               </div>
                             </div>
                           </div>
@@ -170,7 +170,7 @@ include('navAdmin/header.php');
 
 <!-- Modal Tambah User -->
 <div class="modal fade" id="modalTambahUser" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Tambah User</h5>
@@ -187,9 +187,8 @@ include('navAdmin/header.php');
           </div>
           <div class="col-12">
             <label class="form-label">Informasi Sekolah</label>
-            <div class="input-group has-validation">
-              <input type="text" name="informasi" class="form-control" placeholder="Masukkan Username"
-                required>
+            <div style="width: 100%;">
+              <textarea name="infoSekolah" id="editorInfoSekolah"></textarea>
             </div>
           </div>
           <div class="col-12">
@@ -226,4 +225,43 @@ include('navAdmin/footer.php');
       reader.readAsDataURL(input.files[0]);
     }
   }
+</script>
+
+<script type="module">
+  import {
+    ClassicEditor,
+    Essentials,
+    Paragraph,
+    Bold,
+    Italic,
+    Font
+  } from 'ckeditor5';
+  ClassicEditor
+    .create(document.querySelector('#editorInfoSekolah'), {
+      plugins: [Essentials, Paragraph, Bold, Italic, Font],
+      toolbar: [
+        'undo', 'redo', '|', 'bold', 'italic', '|',
+        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+      ]
+    })
+    .then(editor => {
+      window.editor = editor;
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  ClassicEditor
+    .create(document.querySelector('#editorInfoSekolahEdit'), {
+      plugins: [Essentials, Paragraph, Bold, Italic, Font],
+      toolbar: [
+        'undo', 'redo', '|', 'bold', 'italic', '|',
+        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+      ]
+    })
+    .then(editor => {
+      window.editor = editor;
+    })
+    .catch(error => {
+      console.error(error);
+    });
 </script>

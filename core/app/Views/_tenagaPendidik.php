@@ -56,13 +56,19 @@ include('navAdmin/header.php');
                         data-bs-target="#modalGantiFoto<?= $d['idTenagaPendidik'] ?>"><i
                           class="bi bi-images"></i></a>&nbsp;
                       <a data-bs-toggle="modal"
+                        data-bs-target="#modalGantiDokumen<?= $d['idTenagaPendidik'] ?>"><i
+                          class="bi bi-files"></i></a>&nbsp;
+                      <a href="<?= base_url() ?>DownloadDokumen/<?= $d['idTenagaPendidik'] ?>"><i
+                          class="bi bi-file-earmark-arrow-down"></i></a>&nbsp;
+                      <a data-bs-toggle="modal"
                         data-bs-target="#modalValidasiHapus<?= $d['idTenagaPendidik'] ?>"><i
                           class="bi bi-trash-fill"></i></a>&nbsp;
+
                     </td>
                   </tr>
                   <!-- Modal Edit Data -->
                   <div class="modal fade" id="modalEdit<?= $d['idTenagaPendidik'] ?>" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-dialog modal-xl">
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title">Edit Data</h5>
@@ -73,6 +79,13 @@ include('navAdmin/header.php');
                           action="EditOrganisasiPendidik/<?= $d['idTenagaPendidik'] ?>"
                           enctype="multipart/form-data">
                           <div class="modal-body">
+                            <div class="col-12">
+                              <label class="form-label">NIK</label>
+                              <div class="input-group has-validation">
+                                <input type="text" name="nik" class="form-control"
+                                  value="<?= $d['nik'] ?>" required>
+                              </div>
+                            </div>
                             <div class="col-12">
                               <label class="form-label">Nama</label>
                               <div class="input-group has-validation">
@@ -85,6 +98,14 @@ include('navAdmin/header.php');
                               <div class="input-group has-validation">
                                 <input type="text" name="jabatan" class="form-control"
                                   value="<?= $d['jabatan'] ?>" required>
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <label class="form-label">Waktu Bergabung</label>
+                              <div class="input-group has-validation">
+                                <input type="date" name="waktuBergabung"
+                                  class="form-control" value="<?= $d['waktuBergabung'] ?>"
+                                  required>
                               </div>
                             </div>
                           </div>
@@ -122,6 +143,35 @@ include('navAdmin/header.php');
                           <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">
                               Ganti Foto</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Modal Ganti Dokumen -->
+                  <div class="modal fade" id="modalGantiDokumen<?= $d['idTenagaPendidik'] ?>"
+                    tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Ganti Dokumen</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                        </div>
+                        <form method="POST"
+                          action="GantiDokumenPendidik/<?= $d['idTenagaPendidik'] ?>"
+                          enctype="multipart/form-data">
+                          <div class="modal-body">
+                            <div class="col-12">
+                              <label class="form-label">Dokumen</label>
+                              <div class="input-group     ">
+                                <input type="file" name="dokumen" id="upload" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">
+                              Ganti Dokumen</button>
                           </div>
                         </form>
                       </div>
@@ -169,14 +219,20 @@ include('navAdmin/header.php');
 
 <!-- Modal Tambah User -->
 <div class="modal fade" id="modalTambahUser" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Tambah User</h5>
+        <h5 class="modal-title">Tambah Tenaga Pendidik </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form method="POST" action="TambahOrganisasiPendidik" enctype="multipart/form-data">
         <div class="modal-body">
+          <div class="col-12">
+            <label class="form-label">NIK</label>
+            <div class="input-group has-validation">
+              <input type="text" name="nik" class="form-control" placeholder="Masukkan Nama" required>
+            </div>
+          </div>
           <div class="col-12">
             <label class="form-label">Nama</label>
             <div class="input-group has-validation">
@@ -188,6 +244,19 @@ include('navAdmin/header.php');
             <div class="input-group has-validation">
               <input type="text" name="jabatan" class="form-control" placeholder="Masukkan Username"
                 required>
+            </div>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Waktu Bergabung</label>
+            <div class="input-group has-validation">
+              <input type="date" name="waktuBergabung" class="form-control"
+                placeholder="Masukkan Username" required>
+            </div>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Dokumen</label>
+            <div class="input-group">
+              <input type="file" name="dokumen" id="upload" required>
             </div>
           </div>
           <div class="col-12">

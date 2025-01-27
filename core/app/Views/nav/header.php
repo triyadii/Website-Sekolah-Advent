@@ -18,8 +18,8 @@ $facebook       = $session->get('facebook');
     <meta name="keywords" content="">
 
     <!-- Favicons -->
-    <link href="assets/User/img/icon.png" rel="icon">
-    <link href="assets/User/img/icon.png" rel="apple-touch-icon">
+    <link href="assets/User/img/logo.png" rel="icon">
+    <link href="assets/User/img/logo.png" rel="apple-touch-icon">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -45,8 +45,8 @@ $facebook       = $session->get('facebook');
 
             <a href="index.html" class="logo d-flex align-items-center me-auto">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="assets/User/img/icon.png" alt="">
-                <h1 class="sitename"><?= $namaSekolah ?></h1>
+                <img src="assets/User/img/logo.png" alt="">
+                <h1 class="sitename" style="color: #0a2a5c;"><?= $namaSekolah ?></h1>
             </a>
 
             <nav id="navmenu" class="navmenu">
@@ -68,6 +68,7 @@ $facebook       = $session->get('facebook');
                             <li><a href="<?= base_url() ?>StrukturOrganisasiOsis">Osis</a></li>
                             <li><a href="<?= base_url() ?>StrukturOrganisasiTenagaPendidik">Tenaga Pendidik</a></li>
                             <li><a href="<?= base_url() ?>StrukturOrganisasiTenagaNonPendidik">Tenaga Non Pendidik</a>
+                            <li><a href="<?= base_url() ?>Siswa">Siswa</a>
                             </li>
                         </ul>
                     </li>

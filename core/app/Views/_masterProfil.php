@@ -34,156 +34,181 @@ include('navAdmin/header.php');
                             </thead>
                             <tbody>
                                 <?php
-                $no = 0;
-                foreach ($data as $d) {
-                  $no++;
-                ?>
-                                <tr>
-                                    <th scope="row"><?= $no; ?></th>
-                                    <td><?= $d['nama'] ?></td>
-                                    <td><?= $d['nomorTelepon'] ?></td>
-                                    <td><?= $d['alamat'] ?></td>
-                                    <td>
-                                        <img src="<?= base_url() ?>uploads/profil/<?= $d['gambar'] ?>"
-                                            style="width:70%; height:150px;">
-                                    </td>
-                                    <td> <a data-bs-toggle="modal" data-bs-target="#modalEdit<?= $d['idProfil'] ?>"><i
-                                                class="bi bi-pencil"></i></a>&nbsp;
-                                        <a data-bs-toggle="modal" data-bs-target="#modalDetail<?= $d['idProfil'] ?>"><i
-                                                class="bi bi-eye"></i></a>&nbsp;
-                                        <a data-bs-toggle="modal"
-                                            data-bs-target="#modalGantiGambar<?= $d['idProfil'] ?>"><i
-                                                class="bi bi-images"></i></a>&nbsp;
-                                    </td>
-                                </tr>
-                                <!-- Modal Edit Data -->
-                                <div class="modal fade" id="modalEdit<?= $d['idProfil'] ?>" tabindex="-1">
-                                    <div class="modal-dialog modal-xl">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Edit Profil</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
+                                $no = 0;
+                                foreach ($data as $d) {
+                                    $no++;
+                                ?>
+                                    <tr>
+                                        <th scope="row"><?= $no; ?></th>
+                                        <td><?= $d['nama'] ?></td>
+                                        <td><?= $d['nomorTelepon'] ?></td>
+                                        <td><?= $d['alamat'] ?></td>
+                                        <td>
+                                            <img src="<?= base_url() ?>uploads/profil/<?= $d['gambar'] ?>"
+                                                style="width:70%; height:150px;">
+                                        </td>
+                                        <td> <a data-bs-toggle="modal" data-bs-target="#modalEdit<?= $d['idProfil'] ?>"><i
+                                                    class="bi bi-pencil"></i></a>&nbsp;
+                                            <a data-bs-toggle="modal" data-bs-target="#modalDetail<?= $d['idProfil'] ?>"><i
+                                                    class="bi bi-eye"></i></a>&nbsp;
+                                            <a data-bs-toggle="modal"
+                                                data-bs-target="#modalGantiGambar<?= $d['idProfil'] ?>"><i
+                                                    class="bi bi-images"></i></a>&nbsp;
+                                        </td>
+                                    </tr>
+                                    <!-- Modal Edit Data -->
+                                    <div class="modal fade" id="modalEdit<?= $d['idProfil'] ?>" tabindex="-1">
+                                        <div class="modal-dialog modal-xl">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Edit Profil</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <form method="POST" action="EditProfil/<?= $d['idProfil'] ?>"
+                                                    enctype="multipart/form-data">
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <label class="form-label">Nama Sekolah</label>
+                                                                <div class="input-group has-validation">
+                                                                    <input type="text" name="nama" class="form-control"
+                                                                        value="<?= $d['nama'] ?>">
+                                                                </div>
+                                                                <label class="form-label">Nomor Telepon</label>
+                                                                <div class="input-group has-validation">
+                                                                    <input type="text" name="nomorTelepon"
+                                                                        class="form-control"
+                                                                        value="<?= $d['nomorTelepon'] ?>">
+                                                                </div>
+                                                                <label class="form-label">Alamat</label>
+                                                                <div class="input-group has-validation">
+                                                                    <input type="text" name="alamat" class="form-control"
+                                                                        value="<?= $d['alamat'] ?>">
+                                                                </div>
+                                                                <label class="form-label">Tentang</label>
+                                                                <div class="input-group has-validation">
+                                                                    <textarea name="tentang" class="ckeditor"
+                                                                        id="editor"><?= $d['tentang'] ?></textarea>
+                                                                </div>
+                                                                <label class="form-label">Pengantar</label>
+                                                                <div class="input-group has-validation">
+                                                                    <textarea name="pengantar"
+                                                                        class="form-control"><?= $d['pengantar'] ?></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <label class="form-label">Instagram</label>
+                                                                <div class="input-group has-validation">
+                                                                    <input type="text" name="instagram" class="form-control"
+                                                                        value="<?= $d['instagram'] ?>">
+                                                                </div>
+                                                                <label class="form-label">Youtube</label>
+                                                                <div class="input-group has-validation">
+                                                                    <input type="text" name="youtube" class="form-control"
+                                                                        value="<?= $d['youtube'] ?>">
+                                                                </div>
+                                                                <label class="form-label">Facebook</label>
+                                                                <div class="input-group has-validation">
+                                                                    <input type="text" name="facebook" class="form-control"
+                                                                        value="<?= $d['facebook'] ?>">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">
+                                                            Edit Profil</button>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <form method="POST" action="EditProfil/<?= $d['idProfil'] ?>"
-                                                enctype="multipart/form-data">
+                                        </div>
+                                    </div>
+                                    <!-- Modal Ganti Gambar -->
+                                    <div class="modal fade" id="modalGantiGambar<?= $d['idProfil'] ?>" tabindex="-1">
+                                        <div class="modal-dialog modal-xl">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Ganti Gambar</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <form method="POST" action="GantiGambarLandingPage/<?= $d['idProfil'] ?>"
+                                                    enctype="multipart/form-data">
+                                                    <div class="modal-body">
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <label class="form-label">Gambar</label>
+                                                                <div class="input-group     ">
+                                                                    <input type="file" name="gambar" id="upload"
+                                                                        onchange="readURL(this);" required>
+                                                                </div>
+                                                            </div>
+                                                            <img id="image"
+                                                                style=" width:100%; height:300px; margin:0 auto; margin-top: 3%;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">
+                                                            Ganti Gambar Landing Page</button>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal Detail -->
+                                    <div class="modal fade" id="modalDetail<?= $d['idProfil'] ?>" tabindex="-1">
+                                        <div class="modal-dialog modal-xl">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Detail Profil</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
                                                 <div class="modal-body">
                                                     <div class="row">
                                                         <div class="col-6">
                                                             <label class="form-label">Nama Sekolah</label>
                                                             <div class="input-group has-validation">
-                                                                <input type="text" name="nama" class="form-control"
-                                                                    value="<?= $d['nama'] ?>">
+                                                                <input type="text" class="form-control"
+                                                                    value="<?= $d['nama'] ?>" disabled>
                                                             </div>
                                                             <label class="form-label">Nomor Telepon</label>
                                                             <div class="input-group has-validation">
-                                                                <input type="text" name="nomorTelepon"
-                                                                    class="form-control"
-                                                                    value="<?= $d['nomorTelepon'] ?>">
+                                                                <input type="text" class="form-control"
+                                                                    value="<?= $d['nomorTelepon'] ?>" disabled>
                                                             </div>
                                                             <label class="form-label">Alamat</label>
                                                             <div class="input-group has-validation">
                                                                 <input type="text" name="alamat" class="form-control"
-                                                                    value="<?= $d['alamat'] ?>">
-                                                            </div>
-                                                            <label class="form-label">Tentang</label>
-                                                            <div class="input-group has-validation">
-                                                                <textarea name="tentang"
-                                                                    class="form-control"><?= $d['tentang'] ?></textarea>
-                                                            </div>
-                                                            <label class="form-label">Pengantar</label>
-                                                            <div class="input-group has-validation">
-                                                                <textarea name="pengantar"
-                                                                    class="form-control"><?= $d['pengantar'] ?></textarea>
+                                                                    value="<?= $d['alamat'] ?>" disabled>
                                                             </div>
                                                         </div>
                                                         <div class="col-6">
                                                             <label class="form-label">Instagram</label>
                                                             <div class="input-group has-validation">
-                                                                <input type="text" name="instagram" class="form-control"
-                                                                    value="<?= $d['instagram'] ?>">
+                                                                <input type="text" class="form-control"
+                                                                    value="<?= $d['instagram'] ?>" disabled>
                                                             </div>
                                                             <label class="form-label">Youtube</label>
                                                             <div class="input-group has-validation">
-                                                                <input type="text" name="youtube" class="form-control"
-                                                                    value="<?= $d['youtube'] ?>">
+                                                                <input type="text" class="form-control"
+                                                                    value="<?= $d['youtube'] ?>" disabled>
                                                             </div>
                                                             <label class="form-label">Facebook</label>
                                                             <div class="input-group has-validation">
-                                                                <input type="text" name="facebook" class="form-control"
-                                                                    value="<?= $d['facebook'] ?>">
+                                                                <input type="text" class="form-control"
+                                                                    value="<?= $d['facebook'] ?>" disabled>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
-                                                        Edit Profil</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Modal Ganti Gambar -->
-                                <div class="modal fade" id="modalGantiGambar<?= $d['idProfil'] ?>" tabindex="-1">
-                                    <div class="modal-dialog modal-xl">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Ganti Gambar</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <form method="POST" action="GantiGambarLandingPage/<?= $d['idProfil'] ?>"
-                                                enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="row">
-                                                        <div class="col-12">
                                                             <label class="form-label">Gambar</label>
-                                                            <div class="input-group     ">
-                                                                <input type="file" name="gambar" id="upload"
-                                                                    onchange="readURL(this);" required>
+                                                            <div class="input-group has-validation">
+                                                                <img src="<?= base_url() ?>uploads/profil/<?= $d['gambar'] ?>"
+                                                                    style="width:70%; height:150px;">
                                                             </div>
                                                         </div>
-                                                        <img id="image"
-                                                            style=" width:100%; height:300px; margin:0 auto; margin-top: 3%;">
                                                     </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">
-                                                        Ganti Gambar Landing Page</button>
-                                                </div>
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Modal Detail -->
-                                <div class="modal fade" id="modalDetail<?= $d['idProfil'] ?>" tabindex="-1">
-                                    <div class="modal-dialog modal-xl">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Detail Profil</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <label class="form-label">Nama Sekolah</label>
-                                                        <div class="input-group has-validation">
-                                                            <input type="text" class="form-control"
-                                                                value="<?= $d['nama'] ?>" disabled>
-                                                        </div>
-                                                        <label class="form-label">Nomor Telepon</label>
-                                                        <div class="input-group has-validation">
-                                                            <input type="text" class="form-control"
-                                                                value="<?= $d['nomorTelepon'] ?>" disabled>
-                                                        </div>
-                                                        <label class="form-label">Alamat</label>
-                                                        <div class="input-group has-validation">
-                                                            <input type="text" name="alamat" class="form-control"
-                                                                value="<?= $d['alamat'] ?>" disabled>
-                                                        </div>
+                                                    <div class="col-12">
                                                         <label class="form-label">Tentang</label>
                                                         <div class="input-group has-validation">
                                                             <textarea class="form-control"
@@ -195,36 +220,13 @@ include('navAdmin/header.php');
                                                                 disabled><?= $d['pengantar'] ?></textarea>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6">
-                                                        <label class="form-label">Instagram</label>
-                                                        <div class="input-group has-validation">
-                                                            <input type="text" class="form-control"
-                                                                value="<?= $d['instagram'] ?>" disabled>
-                                                        </div>
-                                                        <label class="form-label">Youtube</label>
-                                                        <div class="input-group has-validation">
-                                                            <input type="text" class="form-control"
-                                                                value="<?= $d['youtube'] ?>" disabled>
-                                                        </div>
-                                                        <label class="form-label">Facebook</label>
-                                                        <div class="input-group has-validation">
-                                                            <input type="text" class="form-control"
-                                                                value="<?= $d['facebook'] ?>" disabled>
-                                                        </div>
-                                                        <label class="form-label">Gambar</label>
-                                                        <div class="input-group has-validation">
-                                                            <img src="<?= base_url() ?>uploads/profil/<?= $d['gambar'] ?>"
-                                                                style="width:70%; height:150px;">
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 <?php
-                }
-                ?>
+                                }
+                                ?>
 
                             </tbody>
                         </table>
@@ -241,16 +243,40 @@ include('navAdmin/header.php');
 <?php
 include('navAdmin/footer.php');
 ?>
+<script type="module">
+    import {
+        ClassicEditor,
+        Essentials,
+        Paragraph,
+        Bold,
+        Italic,
+        Font
+    } from 'ckeditor5';
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            plugins: [Essentials, Paragraph, Bold, Italic, Font],
+            toolbar: [
+                'undo', 'redo', '|', 'bold', 'italic', '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+            ]
+        })
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 <script>
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-        reader.onload = function(e) {
-            $('#image').attr('src', e.target.result);
+            reader.onload = function(e) {
+                $('#image').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
         }
-
-        reader.readAsDataURL(input.files[0]);
     }
-}
 </script>

@@ -78,6 +78,11 @@
                         <i class="bi bi-circle"></i><span>Tenaga Non Pendidik</span>
                     </a>
                 </li>
+                <li>
+                    <a href="<?= base_url() ?>Siswa_">
+                        <i class="bi bi-circle"></i><span>Siswa</span>
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="nav-item">

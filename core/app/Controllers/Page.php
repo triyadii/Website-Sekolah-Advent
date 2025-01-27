@@ -6,6 +6,12 @@ use App\Models\Model_data;
 
 class page extends BaseController
 {
+    // Form Pendataan 
+    // ====================================================================
+    public function formPendataanGuru()
+    {
+        return view('formPendataanGuru');
+    }
     // Halaman User
     // ====================================================================
     public function landingPage()
@@ -115,6 +121,17 @@ class page extends BaseController
         }
         $data   = $modelData->tampilOrganisasiNonpendidik();
         return view('strukturOrganisasiTenagaNonpendidik', compact('data'));
+    }
+    public function siswa()
+    {
+        $session = session();
+        $modelData = new Model_data;
+        $namaSekolah = $session->get('namaSekolah');
+        if ($namaSekolah == null) {
+            return redirect()->to(base_url());
+        }
+        $data   = $modelData->tampilSiswa();
+        return view('daftarSiswa', compact('data'));
     }
     public function infoSekolah()
     {
@@ -399,5 +416,16 @@ class page extends BaseController
         $modelData = new Model_data;
         $data = $modelData->tampilPrestasi();
         return view('_prestasi', compact('data'));
+    }
+    public function siswa_()
+    {
+        $session = session();
+        $modelData = new Model_data;
+        $namaSekolah = $session->get('namaSekolah');
+        if ($namaSekolah == null) {
+            return redirect()->to(base_url());
+        }
+        $data   = $modelData->tampilSiswa();
+        return view('_siswa', compact('data'));
     }
 }

@@ -5,6 +5,9 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+// Form UMUM
+$routes->get('/FormPendataanGuru', 'Page::formPendataanGuru');
+
 // Halaman User
 $routes->get('/', 'Page::landingPage');
 $routes->get('/Sambutan', 'Page::sambutan');
@@ -15,6 +18,7 @@ $routes->get('/StrukturOrganisasiKomiteSekolah', 'Page::strukturOrganisasiKomite
 $routes->get('/StrukturOrganisasiOsis', 'Page::strukturOrganisasiOsis');
 $routes->get('/StrukturOrganisasiTenagaPendidik', 'Page::strukturOrganisasiTenagaPendidik');
 $routes->get('/StrukturOrganisasiTenagaNonPendidik', 'Page::strukturOrganisasiTenagaNonPendidik');
+$routes->get('/Siswa', 'Page::siswa');
 $routes->get('/BeritaTerbaru', 'Page::beritaTerbaru');
 $routes->get('/BeritaTerbaruDetail/(:num)', 'Page::beritaTerbaruDetail/$1');
 $routes->get('/InfoSekolah', 'Page::infoSekolah');
@@ -39,6 +43,7 @@ $routes->get('/Osis_', 'Page::osis_');
 $routes->get('/TenagaPendidik_', 'Page::tenagaPendidik_');
 $routes->get('/TenagaNonPendidik_', 'Page::tenagaNonPendidik_');
 $routes->get('/BeritaTerbaru_', 'Page::beritaTerbaru_');
+$routes->get('/Siswa_', 'Page::siswa_');
 $routes->get('/InfoSekolah_', 'Page::infoSekolah_');
 $routes->get('/Agenda_', 'Page::agenda_');
 $routes->get('/Galeri_', 'Page::galeri_');
@@ -90,7 +95,9 @@ $routes->get('/HapusOrganisasiOsis/(:num)', 'OrganisasiOsis_::hapus/$1');
 $routes->post('/TambahOrganisasiPendidik', 'OrganisasiPendidik_::create');
 $routes->post('/EditOrganisasiPendidik/(:num)', 'OrganisasiPendidik_::edit/$1');
 $routes->post('/GantiFotoOrganisasiPendidik/(:num)', 'OrganisasiPendidik_::gantiFoto/$1');
+$routes->post('/GantiDokumenPendidik/(:num)', 'OrganisasiPendidik_::gantiDokumen/$1');
 $routes->get('/HapusOrganisasiPendidik/(:num)', 'OrganisasiPendidik_::hapus/$1');
+$routes->get('/DownloadDokumen/(:num)', 'OrganisasiPendidik_::downloadDokumen/$1');
 
 // Organisasi Non Pendidik
 $routes->post('/TambahOrganisasiNonpendidik', 'OrganisasiNonpendidik_::create');
@@ -103,6 +110,12 @@ $routes->post('/TambahBerita', 'Berita_::create');
 $routes->post('/EditBerita/(:num)', 'Berita_::edit/$1');
 $routes->post('/GantiGambarBerita/(:num)', 'Berita_::gantiGambar/$1');
 $routes->get('/HapusBerita/(:num)', 'Berita_::hapus/$1');
+
+// Manajemen Siswa
+$routes->post('/TambahSiswa', 'Siswa_::create');
+$routes->post('/EditSiswa/(:num)', 'Siswa_::edit/$1');
+$routes->post('/GantiGambarSiswa/(:num)', 'Siswa_::gantiGambar/$1');
+$routes->get('/HapusSiswa/(:num)', 'Siswa_::hapus/$1');
 
 // Info Sekolah
 $routes->post('/TambahInfoSekolah', 'InfoSekolah_::create');

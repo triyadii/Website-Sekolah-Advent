@@ -86,7 +86,7 @@ include('navAdmin/header.php');
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
-                                                <form method="POST" action="GantiGambarLandingPage/<?= $d['idSambutan'] ?>"
+                                                <form method="POST" action="GantiGambarSambutan/<?= $d['idSambutan'] ?>"
                                                     enctype="multipart/form-data">
                                                     <div class="modal-body">
                                                         <div class="row">
@@ -140,4 +140,28 @@ include('navAdmin/footer.php');
             reader.readAsDataURL(input.files[0]);
         }
     }
+</script>
+<script type="module">
+    import {
+        ClassicEditor,
+        Essentials,
+        Paragraph,
+        Bold,
+        Italic,
+        Font
+    } from 'ckeditor5';
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+            plugins: [Essentials, Paragraph, Bold, Italic, Font],
+            toolbar: [
+                'undo', 'redo', '|', 'bold', 'italic', '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+            ]
+        })
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(error => {
+            console.error(error);
+        });
 </script>
